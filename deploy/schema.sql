@@ -1,0 +1,13 @@
+/*----------CLEAR ALL
+TRUNCATE users CASCADE;
+*/
+
+/*----------DROP ALL
+DROP TABLE IF EXISTS users;
+*/
+
+CREATE TABLE IF NOT EXISTS users (
+    id BIGSERIAL PRIMARY KEY,
+    login VARCHAR(75) UNIQUE NOT NULL,
+    "password" VARCHAR(75) NOT NULL,
+);

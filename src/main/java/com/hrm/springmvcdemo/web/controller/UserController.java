@@ -1,4 +1,4 @@
-package com.hrm.springmvcdemo.controller;
+package com.hrm.springmvcdemo.web.controller;
 
 import com.hrm.springmvcdemo.data.entity.User;
 import com.hrm.springmvcdemo.service.UserService;

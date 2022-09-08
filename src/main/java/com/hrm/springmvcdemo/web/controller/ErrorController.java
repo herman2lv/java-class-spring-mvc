@@ -1,4 +1,4 @@
-package com.hrm.springmvcdemo.controller;
+package com.hrm.springmvcdemo.web.controller;
 
 import com.hrm.springmvcdemo.service.exception.ApplicationException;
 import org.springframework.stereotype.Controller;

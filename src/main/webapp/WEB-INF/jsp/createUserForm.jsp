@@ -6,10 +6,10 @@
 </head>
 <body>
 <ul>
-    <li><a href="${pageContext.request.contextPath}">Home</a></li>
+    <li><a href="/">Home</a></li>
 </ul>
 <h1>Create New User</h1>
-<form class="login-form" action="${pageContext.request.contextPath}/users/create" method="post">
+<form class="login-form" action="/users/create" method="post">
     <label>Login: <input name="login" type="text"></label>
     <label>Password: <input name="password" type="text"></label>
     <button>Save</button>

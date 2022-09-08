@@ -8,7 +8,7 @@
 <body>
 <section>
     <ul>
-        <li><a href="${pageContext.request.contextPath}">Home</a></li>
+        <li><a href="/">Home</a></li>
     </ul>
     <table>
         <thead>
@@ -26,19 +26,19 @@
                 <td>${user.id}</td>
                 <td>${user.login}</td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/users/${user.id}" method="get"><input type="submit" value="View"></form>
+                    <form action="/users/${user.id}" method="get"><input type="submit" value="View"></form>
                 </td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/users/edit/${user.id}" method="get"><input type="submit" value="Edit"></form>
+                    <form action="/users/edit/${user.id}" method="get"><input type="submit" value="Edit"></form>
                 </td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/users/delete/${user.id}" method="post"><input type="submit" value="Delete"></form>
+                    <form action="/users/delete/${user.id}" method="post"><input type="submit" value="Delete"></form>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </section>
-<form action="${pageContext.request.contextPath}/users/create" method="get"><input type="submit" value="Create New"></form>
+<form action="/users/create" method="get"><input type="submit" value="Create New"></form>
 </body>
 </html>

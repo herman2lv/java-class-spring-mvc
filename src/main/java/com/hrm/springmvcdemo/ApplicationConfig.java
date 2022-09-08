@@ -1,11 +1,13 @@
 package com.hrm.springmvcdemo;
 
+import com.hrm.springmvcdemo.web.interceptor.MyInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -34,6 +36,12 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/css/", "classpath:/images/", "classpath:/js/");
     }
 
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(myInterceptor())
+                .addPathPatterns("/**");
+    }
+
     @Bean
     public EntityManagerFactory entityManagerFactory() {
         return Persistence.createEntityManagerFactory("psql");
@@ -44,4 +52,8 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         return new JpaTransactionManager(entityManagerFactory);
     }
 
+    @Bean
+    public MyInterceptor myInterceptor() {
+        return new MyInterceptor();
+    }
 }

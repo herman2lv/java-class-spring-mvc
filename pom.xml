@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.hrm</groupId>
+    <groupId>com.hrm</groupId>
     <artifactId>spring-mvc-demo</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>

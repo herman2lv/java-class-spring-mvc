@@ -5,7 +5,7 @@
 </head>
 <body>
 <ul>
-    <li><a href="${pageContext.request.contextPath}">Home</a></li>
+    <li><a href="/">Home</a></li>
 </ul>
 <h1>Error!</h1>
 <div>${message != null ? message : 'Something went wrong...'}</div>

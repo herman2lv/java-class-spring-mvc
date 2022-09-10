@@ -1,4 +1,4 @@
-package com.hrm.springmvcdemo.controller;
+package com.hrm.springmvcdemo.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

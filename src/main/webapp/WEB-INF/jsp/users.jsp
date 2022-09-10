@@ -24,7 +24,8 @@
         <c:forEach items="${users}" var="user">
             <tr>
                 <td>${user.id}</td>
-                <td>${user.login}</td>
+                <!-- example of html injection protection -->
+                <td><c:out value="${user.login}"/></td>
                 <td>
                     <form action="/users/${user.id}" method="get"><input type="submit" value="View"></form>
                 </td>

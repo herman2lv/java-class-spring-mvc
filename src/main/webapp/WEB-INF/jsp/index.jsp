@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -6,6 +8,8 @@
 </head>
 <body>
 <h1>Welcome to Demo App</h1>
+<p>FMT: <fmt:message key="home.greet"/></p>
+<p>SPRING: <spring:message code="home.greet"/></p>
 <c:if test="${sessionScope.user != null}">
     <h2>Glad to see you again, ${sessionScope.user.login}</h2>
 </c:if>

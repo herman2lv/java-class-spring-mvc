@@ -9,6 +9,8 @@ import com.hrm.springmvcdemo.service.dto.UserDto;
 import com.hrm.springmvcdemo.service.exception.AppException;
 import com.hrm.springmvcdemo.service.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +22,15 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final EncryptionService encryptionService;
     private final UserMapper userMapper;
+    private final MessageSource messageSource;
 
     @Override
     public UserDto getById(Long id) {
         return userRepository.findById(id)
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " wasn't found"));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        messageSource.getMessage("error.user.notFound", new Object[]{id}, LocaleContextHolder.getLocale())
+                ));
     }
 
     @Override
@@ -35,7 +40,9 @@ public class UserServiceImpl implements UserService {
                 .filter(u -> u.getLogin().equals(login) && u.getPassword().equals(hashedPassword))
                 .findFirst()
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new AppException("Bad login! Go home"));
+                .orElseThrow(() -> new AppException(
+                        messageSource.getMessage("error.login.invalid", new Object[0], LocaleContextHolder.getLocale())
+                ));
     }
 
     @Override

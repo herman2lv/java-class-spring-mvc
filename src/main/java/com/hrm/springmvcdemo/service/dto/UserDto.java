@@ -20,7 +20,7 @@ public class UserDto {
 
     @NotBlank //Custom localized message should be used instead of default
     @Length(min = 8, message = "{validation.user.password.min}")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!_]).{8,}$", message = "{validation.user.password.regexp}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!_]).*$", message = "{validation.user.password.regexp}")
     private String password;
 
 }

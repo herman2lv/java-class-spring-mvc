@@ -71,4 +71,9 @@ public class UserController {
         userService.delete(id);
         return "redirect:/users/getAll";
     }
+
+    @ModelAttribute
+    public UserDto newUser() {
+        return new UserDto();
+    }
 }

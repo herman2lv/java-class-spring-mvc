@@ -1,19 +1,19 @@
 package com.hrm.springmvcdemo.service;
 
-import com.hrm.springmvcdemo.data.entity.User;
+import com.hrm.springmvcdemo.service.dto.UserDto;
 
 import java.util.List;
 
 public interface UserService {
-    User getById(Long id);
+    UserDto getById(Long id);
 
-    User login(String login, String password);
+    UserDto login(String login, String password);
 
-    List<User> getAll();
+    List<UserDto> getAll();
 
-    User create(User user);
+    UserDto create(UserDto user);
 
-    User edit(User user);
+    UserDto edit(UserDto user);
 
     void delete(Long id);
 }

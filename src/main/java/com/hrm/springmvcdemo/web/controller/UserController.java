@@ -1,7 +1,7 @@
 package com.hrm.springmvcdemo.web.controller;
 
-import com.hrm.springmvcdemo.data.entity.User;
 import com.hrm.springmvcdemo.service.UserService;
+import com.hrm.springmvcdemo.service.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +25,14 @@ public class UserController {
 
     @GetMapping("/{id}")
     public String getUser(@PathVariable Long id, Model model) {
-        User user = userService.getById(id);
+        UserDto user = userService.getById(id);
         model.addAttribute("user", user);
         return "user";
     }
 
     @GetMapping("/getAll")
     public String getUsers(Model model) {
-        List<User> users = userService.getAll();
+        List<UserDto> users = userService.getAll();
         model.addAttribute("users", users);
         return "users";
     }
@@ -43,20 +43,20 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String createUser(@ModelAttribute User user) {
+    public String createUser(@ModelAttribute UserDto user) {
         userService.create(user);
         return "redirect:/users/" + user.getId();
     }
 
     @GetMapping("/edit/{id}")
     public String editUserForm(@PathVariable Long id, Model model) {
-        User user = userService.getById(id);
+        UserDto user = userService.getById(id);
         model.addAttribute("user", user);
         return "editUserForm";
     }
 
     @PostMapping("/edit/{id}")
-    public String editUser(@ModelAttribute User user) {
+    public String editUser(@ModelAttribute UserDto user) {
         userService.edit(user);
         return "redirect:/users/" + user.getId();
     }

@@ -2,13 +2,12 @@ package com.hrm.springmvcdemo.web.controller;
 
 import com.hrm.springmvcdemo.service.UserService;
 import com.hrm.springmvcdemo.service.dto.UserDto;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor

@@ -1,6 +1,7 @@
 package com.hrm.springmvcdemo;
 
 import com.hrm.springmvcdemo.web.interceptor.MyInterceptor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,11 @@ import javax.persistence.Persistence;
 @Configuration
 @ComponentScan
 @EnableTransactionManagement
+@RequiredArgsConstructor
 public class ApplicationConfig extends WebMvcConfigurationSupport {
+
+    private final MyInterceptor myInterceptor;
+
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -38,8 +43,7 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(myInterceptor())
-                .addPathPatterns("/**");
+        registry.addInterceptor(myInterceptor).addPathPatterns("/**");
     }
 
     @Bean
@@ -52,8 +56,4 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         return new JpaTransactionManager(entityManagerFactory);
     }
 
-    @Bean
-    public MyInterceptor myInterceptor() {
-        return new MyInterceptor();
-    }
 }

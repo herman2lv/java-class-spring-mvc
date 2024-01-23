@@ -2,11 +2,11 @@ package com.hrm.springmvcdemo.data.impl;
 
 import com.hrm.springmvcdemo.data.UserRepository;
 import com.hrm.springmvcdemo.data.entity.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
